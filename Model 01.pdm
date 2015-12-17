@@ -1,0 +1,141 @@
+Coupled
+    {
+    Type = Root
+    Name = Model 01
+    Ports = 0; 0
+    Description = 
+    Graphic
+        {
+        Position = 0; 0
+        Dimension = 600; 600
+        Direction = Right
+        Color = 15
+        Icon = 
+        Window = 5000; 5000; 5000; 5000
+        }
+    Parameters
+        {
+        }
+    System
+        {
+        Coupled
+            {
+            Type = Coordinator
+            Name = Coupled0
+            Ports = 0; 0
+            Description = Coupled DEVS model
+            Graphic
+                {
+                Position = -1305; -210
+                Dimension = 675; 720
+                Direction = Right
+                Color = 15
+                Icon = %basicelements%coupled.svg
+                Window = 5000; 5000; 5000; 5000
+                }
+            Parameters
+                {
+                }
+            System
+                {
+                Atomic
+                    {
+                    Name = GeneradorSM
+                    Ports = 0 ; 1
+                    Path = proyecto/gen.h
+                    Description = Generador de autos que entran por calle San Martin
+                    Graphic
+                        {
+                        Position = -11055 ; -6030
+                        Dimension = 675 ; 675
+                        Direction = Right
+                        Color = 15
+                        Icon = None
+                        }
+                    Parameters
+                        {
+                        tasa = Val; 0.33 ; 
+                        velAuto = Val; 30 ; 
+                        }
+                    }
+                Atomic
+                    {
+                    Name = SemaforoSM
+                    Ports = 0 ; 1
+                    Path = proyecto/semaforo.h
+                    Description = Atomic DEVS model
+                    Graphic
+                        {
+                        Position = -11055 ; -3480
+                        Dimension = 675 ; 675
+                        Direction = Right
+                        Color = 15
+                        Icon = ../atomics/proyecto/img/sem.jpg
+                        }
+                    Parameters
+                        {
+                        tiempoVerde = Val; 17 ; 
+                        tiempoAmarillo = Val; 3 ; 
+                        tiempoRojo = Val; 20 ; 
+                        estadoInicial = Val; 1 ; 
+                        }
+                    }
+                Atomic
+                    {
+                    Name = Esquina1
+                    Ports = 1 ; 1
+                    Path = proyecto/esquina.h
+                    Description = Atomic DEVS model
+                    Graphic
+                        {
+                        Position = -4680 ; -5160
+                        Dimension = 675 ; 720
+                        Direction = Right
+                        Color = 15
+                        Icon = None
+                        }
+                    Parameters
+                        {
+                        distanciaEsquina = Val; 10 ; 
+                        probabilidad = Val; 0.4 ; 
+                        velocidadEsquina = Val; 30 ; 
+                        }
+                    }
+                Atomic
+                    {
+                    Name = SanMartin
+                    Ports = 2 ; 1
+                    Path = proyecto/calle.h
+                    Description = Modelo atómico de la calle San Martín.
+                    Graphic
+                        {
+                        Position = -7455 ; -4680
+                        Dimension = 675 ; 675
+                        Direction = Right
+                        Color = 15
+                        Icon = None
+                        }
+                    Parameters
+                        {
+                        longitud = Val; 100 ; Longitud de la calle.
+                        velocidad = Val; 30 ; Velocidad de la calle.
+                        }
+                    }
+                Line
+                    {
+                    Source = Cmp ;  1 ;  1 ; 0
+                    Sink = Cmp ;  4 ;  1 ; -1
+                    PointX = -10275 ; -10275 ; -10275 ; -7590
+                    PointY = -5700 ; -5700 ; -4500 ; -4500
+                    }
+                Line
+                    {
+                    Source = Cmp ;  2 ;  1 ; 0
+                    Sink = Cmp ;  4 ;  2 ; -1
+                    PointX = -10275 ; -10275 ; -7590
+                    PointY = -3150 ; -4200 ; -4200
+                    }
+                }
+            }
+        }
+    }

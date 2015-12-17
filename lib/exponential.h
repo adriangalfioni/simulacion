@@ -1,0 +1,9 @@
+#include "randomc.h"
+
+class Exponential{
+   
+public:
+   double exponential(double lambda);
+};
+
+
