@@ -8,10 +8,10 @@ void semaforo::init(double t,...) {
 	//      %Name% is the parameter name
 	//	%Type% is the parameter type
 
-	tiempoVerde = va_arg(parameters,int);
-	tiempoAmarillo = va_arg(parameters,int);
-	tiempoRojo = va_arg(parameters,int);
-	estadoInicial = va_arg(parameters,int);
+	tiempoVerde = (int) va_arg(parameters,double);
+	tiempoAmarillo = (int) va_arg(parameters,double);
+	tiempoRojo = (int) va_arg(parameters,double);
+	estadoInicial = (int) va_arg(parameters,double);
 
 	color = estadoInicial;
 
